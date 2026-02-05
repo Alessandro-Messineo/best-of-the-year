@@ -4,13 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Best of the Year</title>
+    <link th:replace="fragments :: bootstrap">
 </head>
 
 <body>
 
-    <h1>Best of the year by <span th:text="${name}"></span></h1>
-    <a th:href="@{/movies}">Vedi film</a>
-    <a th:href="@{/songs}">Vedi canzoni</a>
+    <div th:replace="fragments :: navbar"></div>
+
+    <div class="container text-center mt-5">
+
+        <h1 class="mb-4">
+            Best of the year by <span th:text="${name}"></span>
+        </h1>
+
+        <img th:src="@{/img/film-song.jpg}" class="img-fluid rounded mb-4 shadow" alt="film-song">
+
+        <p class="lead">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Iusto dignissimos deserunt, porro veritatis magnam quos officia corrupti
+            accusantium debitis esse, ipsa quo nihil ab eaque dicta?
+            Dolorem vitae incidunt suscipit!
+        </p>
+
+    </div>
+
 </body>
 
 </html>
