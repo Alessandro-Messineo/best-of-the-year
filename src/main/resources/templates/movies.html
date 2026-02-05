@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <title>Movies</title>
+    <link th:replace="fragments :: bootstrap">
 </head>
-
 <body>
 
-    <h1>Best Movies</h1>
-    <p th:text="${titles}"></p>
+<div th:replace="fragments :: navbar"></div>
+
+<div class="container text-center mt-5">
+
+    <h1 class="mb-4">Best Movies</h1>
+
+    <ul class="list-group mx-auto w-50">
+        <li class="list-group-item"
+            th:each="movie : ${movies}">
+            <span th:text="${movie.titolo}"></span>
+        </li>
+    </ul>
+
+</div>
 
 </body>
-
 </html>

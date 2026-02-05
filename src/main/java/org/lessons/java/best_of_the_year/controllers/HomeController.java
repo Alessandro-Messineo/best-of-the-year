@@ -42,16 +42,8 @@ public class HomeController {
     public String movies(Model model) {
 
         Movie[] movies = getBestMovies();
-        String titoli = "";
-
-        for (int i = 0; i < movies.length; i++) {
-            titoli += movies[i].getTitolo();
-            if (i < movies.length - 1) {
-                titoli += ", ";
-            }
-        }
-
-        model.addAttribute("titles", titoli);
+      
+        model.addAttribute("movies", movies);
 
         return "movies";
     }
@@ -60,16 +52,8 @@ public class HomeController {
     public String songs(Model model) {
 
         Song[] songs = getBestSongs();
-        String titoli = "";
-
-        for (int i = 0; i < songs.length; i++) {
-            titoli += songs[i].getTitolo();
-            if (i < songs.length - 1) {
-                titoli += ", ";
-            }
-        }
-
-        model.addAttribute("titles", titoli);
+    
+        model.addAttribute("songs", songs);
 
         return "songs";
     }
