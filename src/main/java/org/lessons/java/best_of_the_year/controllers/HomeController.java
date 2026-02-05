@@ -6,9 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
-@RequestMapping
+@RequestMapping("/")
 public class HomeController {
 
     @GetMapping("/")
@@ -69,8 +70,40 @@ public class HomeController {
         }
 
         model.addAttribute("titles", titoli);
-        
+
         return "songs";
+    }
+
+    @GetMapping("/movies/{id}")
+    public String moviesId(Model model, @PathVariable("id") int id) {
+
+        Movie[] movies = getBestMovies();
+        String movieTitolo = "";
+
+        for (int i = 0; i < movies.length; i++) {
+            if (movies[i].getId() == id) {
+                movieTitolo = movies[i].getTitolo();
+                break;
+            }
+        }
+        model.addAttribute("movieDetail", movieTitolo);
+        return "movie-detail";
+    }
+
+    @GetMapping("/songs/{id}")
+    public String songsId(Model model, @PathVariable("id") int id) {
+
+        Song[] songs = getBestSongs();
+        String songTitolo = "";
+
+        for (int i = 0; i < songs.length; i++) {
+            if (songs[i].getId() == id) {
+                songTitolo = songs[i].getTitolo();
+                break;
+            }
+        }
+        model.addAttribute("songDetail", songTitolo);
+        return "song-detail";
     }
 
 }
