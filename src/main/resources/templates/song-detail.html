@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Song Detail</title>
+    <link th:replace="fragments :: bootstrap">
 </head>
+
 <body>
 
-<h1>Dettaglio Canzone</h1>
+    <div th:replace="fragments :: navbar"></div>
 
-<p th:text="${songDetail}"></p>
+    <div class="container text-center mt-5">
+
+        <p class="text-muted">
+            Canzone alla posizione <strong th:text="${songFound.id}"></strong>
+        </p>
+
+        <h1 class="mb-4" th:text="${songFound.titolo}"></h1>
+
+        <a class="btn btn-primary mt-3" th:href="@{/songs}">
+            Torna alle Canzoni
+        </a>
+
+    </div>
 
 </body>
+
 </html>

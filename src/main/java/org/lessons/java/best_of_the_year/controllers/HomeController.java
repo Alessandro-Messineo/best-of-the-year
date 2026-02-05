@@ -62,15 +62,15 @@ public class HomeController {
     public String moviesId(Model model, @PathVariable("id") int id) {
 
         Movie[] movies = getBestMovies();
-        String movieTitolo = "";
+        Movie movieFound = null;
 
         for (int i = 0; i < movies.length; i++) {
             if (movies[i].getId() == id) {
-                movieTitolo = movies[i].getTitolo();
+                movieFound = movies[i];
                 break;
             }
         }
-        model.addAttribute("movieDetail", movieTitolo);
+        model.addAttribute("movieFound", movieFound);
         return "movie-detail";
     }
 
@@ -78,15 +78,15 @@ public class HomeController {
     public String songsId(Model model, @PathVariable("id") int id) {
 
         Song[] songs = getBestSongs();
-        String songTitolo = "";
+        Song songFound = null;
 
         for (int i = 0; i < songs.length; i++) {
             if (songs[i].getId() == id) {
-                songTitolo = songs[i].getTitolo();
+                songFound = songs[i];
                 break;
             }
         }
-        model.addAttribute("songDetail", songTitolo);
+        model.addAttribute("songFound", songFound);
         return "song-detail";
     }
 

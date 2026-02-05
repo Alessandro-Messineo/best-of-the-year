@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <title>Movie Detail</title>
+    <link th:replace="fragments :: bootstrap">
 </head>
+
 <body>
 
-<h1>Dettaglio Film</h1>
+    <div th:replace="fragments :: navbar"></div>
 
-<p th:text="${movieDetail}"></p>
+    <div class="container text-center mt-5">
+
+        <p class="text-muted">
+            Film alla posizione <strong th:text="${movieFound.id}"></strong>
+        </p>
+
+        <h1 class="mb-4" th:text="${movieFound.titolo}"></h1>
+
+        <a class="btn btn-primary mt-3" th:href="@{/movies}">
+            Torna ai Film
+        </a>
+
+    </div>
 
 </body>
+
 </html>
