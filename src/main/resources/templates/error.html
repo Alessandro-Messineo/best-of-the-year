@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Errore</title>
+    <link th:replace="fragments :: bootstrap">
+</head>
+<body class="bg-light">
+
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="card shadow-sm text-center p-4" style="max-width: 500px;">
+            
+            <div class="card-body">
+                <h1 class="text-danger mb-3">Pagina non trovata</h1>
+
+                <p class="fw-bold" th:text="'Codice errore: ' + ${status}"></p>
+                <p class="text-muted" th:text="${error}"></p>
+                <p class="text-muted" th:text="${message}"></p>
+
+                <a href="/" class="btn btn-primary mt-3">
+                    Torna alla home
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

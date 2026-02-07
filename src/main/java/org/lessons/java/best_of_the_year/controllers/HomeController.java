@@ -42,7 +42,7 @@ public class HomeController {
     public String movies(Model model) {
 
         Movie[] movies = getBestMovies();
-      
+
         model.addAttribute("movies", movies);
 
         return "movies";
@@ -52,7 +52,7 @@ public class HomeController {
     public String songs(Model model) {
 
         Song[] songs = getBestSongs();
-    
+        
         model.addAttribute("songs", songs);
 
         return "songs";
